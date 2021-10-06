@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Mi Colegio - Estudiantes</title>
+        <!-- Favicon icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+        <!-- Custom Stylesheet -->
+        <link href="./plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+        <!-- Page plugins css -->
+        <link href="./plugins/clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
+        <!-- Color picker plugins css -->
+        <link href="./plugins/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
+        <!-- Date picker plugins css -->
+        <link href="./plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+        <!-- Daterange picker plugins css -->
+        <link href="./plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+        <link href="./plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+        <!-- Custom Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+    </head>
+
+    <body>
+
+        <!--*******************
+            Preloader start
+        ********************-->
+        <div id="preloader">
+            <div class="loader">
+                <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+                </svg>
+            </div>
+        </div>
+        <!--*******************
+            Preloader end
+        ********************-->
+
+
+        <!--**********************************
+            Main wrapper start
+        ***********************************-->
+        <div id="main-wrapper">
+
+            <!--**********************************
+                Nav header start
+            ***********************************-->
+            <div class="nav-header">
+                <div class="brand-logo">
+                    <a href="index.html">
+                        <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
+                        <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span>
+                        <span class="brand-title">
+                            <img src="images/logo-text.png" alt="">
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <!--**********************************
+                Nav header end
+            ***********************************-->
+
+            <!--**********************************
+                Header start
+            ***********************************-->
+            <div class="header">    
+                <div class="header-content clearfix">
+
+                    <div class="nav-control">
+                        <div class="ha  mburger">
+                            <span class="toggle-icon"><i class="icon-menu"></i></span>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <ul class="clearfix">
+                            <li class="icons dropdown">
+                                <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                                    <span class="activity active"></span>
+                                    <img src="images/user/1.png" height="40" width="40" alt="">
+                                </div>
+                                <div class="drop-down dropdown-profile   dropdown-menu">
+                                    <div class="dropdown-content-body">
+                                        <ul>
+                                            <li>
+                                                <a href="app-profile.html"><i class="icon-user"></i> <span>Perfil</span></a>
+                                            </li>
+                                            <li><a href="index.html"><i class="icon-key"></i> <span>Cerrar Sesión</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--**********************************
+                Header end ti-comment-alt
+            ***********************************-->
+
+            <!--**********************************
+                Sidebar start
+            ***********************************-->
+            <div class="nk-sidebar">           
+                <div class="nk-nav-scroll">
+                    <ul class="metismenu" id="menu">
+                        <li class="nav-label">Menú</li>
+
+                        <li class="mega-menu mega-menu-sm">
+                            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                                <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Menú</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li><a href="./Profesores.html">Profesores</a></li>
+                                <li><a href="">Estudiantes</a></li>
+                                <li><a href="./Grados.html">Grados</a></li>
+                            </ul>
+                        </li>
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+            <!--**********************************
+                Sidebar end
+            ***********************************-->
+
+            <!--**********************************
+                Content body start
+            ***********************************-->
+            <div class="content-body">
+                <div class="row page-titles mx-0">
+                    <h4 class="card-title">Estudiantes</h4>
+                    <div class="col p-md-0">
+
+                        <ol class="breadcrumb">
+
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Menú</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Estudiantes</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- row -->
+
+                <div class="container-fluid" ng-controller="testController as ts">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="basic-form">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label>Nombres</label>
+                                                    <input type="text" class="form-control" placeholder="Nombres" ng-model="ts.estudiante.nombres">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Apellidos</label>
+                                                    <input type="text" class="form-control" placeholder="Apellidos" ng-model="ts.estudiante.apellidos">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Fecha Nacimiento</label>
+                                                    <input type="text" class="form-control mydatepicker" placeholder="dd/mm/aaaa" ng-model="ts.estudiante.fechaNacimiento">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label>Tipo de Documento</label>
+                                                    <select id="inputState" class="form-control" ng-model="ts.estudiante.tipoDocumento">
+                                                        <option selected="selected">Seleccione...</option>
+                                                        <option>CC - Cédula de Ciudadanía</option>
+                                                        <option>TI - Tarjeta de Identidad</option>
+                                                        <option>RC - Registro Civil</option>
+                                                        <option>CE - Cédula de Extrajería</option>
+                                                        <option>PA - Pasaporte</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Documento</label>
+                                                    <input type="text" class="form-control" placeholder="Número Documento" ng-model="ts.estudiante.documento">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Estado Civil</label>
+                                                    <select id="inputState" class="form-control" ng-model="ts.estudiante.estadoCivil">
+                                                        <option selected="selected">Seleccione...</option>
+                                                        <option>Soltero(a)</option>
+                                                        <option>Casado(a)</option>
+                                                        <option>Divorciado(a)</option>
+                                                        <option>Viudo(a)</option>
+                                                        <option>Unión Libre</option>
+                                                    </select>
+                                                </div>
+                                                
+                                            </div>
+                                                <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label>Teléfono</label>
+                                                    <input type="text" class="form-control" placeholder="Teléfono" ng-model="ts.estudiante.telefono">
+                                                </div>
+                                                <div class="form-group col-md-8">
+                                                    <label>Dirección</label>
+                                                    <input type="text" class="form-control" placeholder="Dirección" ng-model="ts.estudiante.direccion">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label>Correo Personal</label>
+                                                    <input type="email" class="form-control" placeholder="Correo Personal" ng-model="ts.estudiante.correoPersonal">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Correo Institucional</label>
+                                                    <input type="email" class="form-control" placeholder="Correo Institucional" ng-model="ts.estudiante.correoInstitucional">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label>Usuario</label>
+                                                    <input type="text" class="form-control" placeholder="Usuario" ng-model="ts.estudiante.usuario">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Clave</label>
+                                                    <input type="text" class="form-control" placeholder="Clave" ng-model="ts.estudiante.clave">
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label>Grado</label>
+                                                    <select id="inputState" class="form-control" ng-model="ts.estudiante.nombreGrado">
+                                                        <option selected="selected">Seleccione...</option>
+                                                        <option>Primero</option>
+                                                        <option>Segundo</option>
+                                                        <option>Tercero</option>
+                                                        <option>Cuarto</option>
+                                                        <option>Quinto</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Salón</label>
+                                                    <select id="inputState" class="form-control" ng-model="ts.estudiante.salon">
+                                                        <option selected="selected">Seleccione...</option>
+                                                        <option>A</option>
+                                                        <option>B</option>
+                                                        <option>C</option>
+                                                        <option>D</option>
+                                                        <option>E</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Jornada</label>
+                                                    <select id="inputState" class="form-control" ng-model="ts.estudiante.jornada">
+                                                        <option selected="selected">Seleccione...</option>
+                                                        <option>Mañana</option>
+                                                        <option>Tarde</option>
+                                                        <option>Noche</option>
+                                                        <option>Única</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-dark" ng-click="ts.guardar()">Guardar</button>
+                                            <button type="submit" class="btn btn-dark" ng-click="ts.limpiar()">Limpiar Formulario</button>
+                                            <button type="submit" class="btn btn-dark" ng-click="ts.listar()">Listar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Lista de Estudiantes</h4>
+                                <div class="table-responsive"> 
+                                    <table class="table table-bordered table-striped verticle-middle">
+                                        <thead>
+                                            <tr ng-repeat="estudiante in ts.estudiantes">
+                                                <th scope="col">Documento</th>
+                                                <th scope="col">Nombres</th>
+                                                <th scope="col">Apellidos</th>
+                                                <th scope="col">Usuario</th>
+                                                <th scope="col">Grado</th>
+                                                <th scope="col">Salón</th>
+                                                <th scope="col">Jornada</th>
+                                                <th scope="col">Editar</th>
+                                                <th scope="col">Eliminar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{estudiante.documento}}</td>
+                                                <td>{{estudiante.nombres}}</td>
+                                                <td>{{estudiante.apellidos}}</td>
+                                                <td>{{estudiante.usuario}}</td>
+                                                <td>{{estudiante.nombreGrado}}</td>
+                                                <td>{{estudiante.salon}}</td>
+                                                <td>{{estudiante.jornada}}</td>
+                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Editar" ng-click="ts.seleccionar()"><i class="fa fa-pencil color-muted m-r-5"></i></a></span></td>
+                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Eliminar" ng-click="ts.eliminar()"><i class="fa fa-close color-danger"></i></a></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #/ container -->
+
+            </div>
+            <!--**********************************
+                Content body end
+            ***********************************-->
+
+
+            <!--**********************************
+                Footer start
+            ***********************************-->
+            <div class="footer">
+                <div class="copyright">
+                    <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+                </div>
+            </div>
+            <!--**********************************
+                Footer end
+            ***********************************-->
+        </div>
+        <!--**********************************
+            Main wrapper end
+        ***********************************-->
+
+        <!--**********************************
+            Scripts
+        ***********************************-->
+        <script src="plugins/common/common.min.js"></script>
+        <script src="js/custom.min.js"></script>
+        <script src="js/settings.js"></script>
+        <script src="js/gleek.js"></script>
+        <script src="js/styleSwitcher.js"></script>
+        <script src="./plugins/moment/moment.js"></script>
+        <script src="./plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+        <!-- Clock Plugin JavaScript -->
+        <script src="./plugins/clockpicker/dist/jquery-clockpicker.min.js"></script>
+        <!-- Color Picker Plugin JavaScript -->
+        <script src="./plugins/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
+        <script src="./plugins/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
+        <script src="./plugins/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
+        <!-- Date Picker Plugin JavaScript -->
+        <script src="./plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <!-- Date range Plugin JavaScript -->
+        <script src="./plugins/timepicker/bootstrap-timepicker.min.js"></script>
+        <script src="./plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+        <script src="./js/plugins-init/form-pickers-init.js"></script>
+    </body>
+    <script>
+        
+    </script>
+</html>
