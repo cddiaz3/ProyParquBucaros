@@ -22,3 +22,5 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /FrontendG4ce/target/
+/Sprint 4 - G4 S23/Backend FinalG4S23/Backend_final_g4/target/
+/Backend_final_g4/target/
