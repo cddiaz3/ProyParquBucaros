@@ -72,4 +72,27 @@ public class DAOUsuarios {
             return false;
         }
     }
+    
+    public TOUsuarios verificarUsuario(String usuario, String contrasena) {
+        TOUsuarios usuarioTo = new TOUsuarios();
+        try {
+            ResultSet rs = con.consultarWhere(nombreTabla, " usuario = '" + usuario + "' AND contrasena = '" + contrasena + "'");
+            while (rs.next()) {
+                usuarioTo.setIdUsuarios(rs.getInt("idUsuarios"));
+                usuarioTo.setUsuario(rs.getString("usuario"));
+                usuarioTo.setContraseña(rs.getString("contrasena"));
+                usuarioTo.setNombre(rs.getString("nombre"));
+                usuarioTo.setApellido(rs.getString("apellido"));
+                usuarioTo.setEmail(rs.getString("email"));
+                usuarioTo.setTipoDocumento(rs.getString("tipoDocumento"));
+                usuarioTo.setDocumento(rs.getString("documento"));
+                usuarioTo.setCelular(rs.getString("celular"));
+               
+            }
+            return usuarioTo;
+        } catch (SQLException ex) {
+            System.out.println("Error en DAOUsuarios.verificarUsuario: " + ex.getMessage());
+            return null;
+        }
+    }
 }

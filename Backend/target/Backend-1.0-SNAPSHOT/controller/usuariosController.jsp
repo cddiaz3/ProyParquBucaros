@@ -9,8 +9,10 @@ if("listar".equals(opcion)){
     ArrayList<TOUsuarios> usuarios =usuariosCtrl.consultarUsuarios();
     out.print(new Gson().toJson(usuarios));
 }else if ("login".equals(opcion)){
-    ArrayList<TOUsuarios> usuarios =usuariosCtrl.consultarUsuarios();
-    out.print(new Gson().toJson(usuarios));
+   String datos = request.getParameter("data");
+   TOUsuarios usuario = new Gson().fromJson(datos, TOUsuarios.class);
+   usuario = usuariosCtrl.verificarUsuario(usuario.getUsuario(), usuario.getContrasena());
+   out.print(new Gson().toJson(usuario));
 } else {
     System.out.println("opcion no valida");
 }

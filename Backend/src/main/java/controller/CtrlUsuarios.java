@@ -27,5 +27,9 @@ public class CtrlUsuarios {
     public boolean eliminarUsuarios(int id) {
         return usuariosDAO.eliminarUsuarios(id);
     }
+    
+    public TOUsuarios verificarUsuario(String usuario, String contrasena) {
+        return usuariosDAO.verificarUsuario(usuario, contrasena);
+    }
 
 }
