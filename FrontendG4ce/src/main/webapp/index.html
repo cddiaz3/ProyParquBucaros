@@ -94,16 +94,16 @@
                 var parametros = {opcion:"login", data: JSON.stringify(controlador)};
                 $http({
                     method: 'POST',
-                    url:'http;//localhost:8080/Backend/controller/usuariosController.jsp'
+                    url:'http;//localhost:8080/Backend/controller/usuariosController.jsp',
                     params:parametros
-                }).then(function(res)){
+                }).then(function(res){
                     controlador.respuesta = res.data;
                     if(res.data.idUsuarios == 0){
                         alert("El usuario y/o contraseña ingresados no son validos");
                     }else{
                         window.location.href = "Usuario.html";
                     }
-                }                        
+                });                        
             }
         }
     </script>
