@@ -1,4 +1,4 @@
-<!doctype html>
++<!doctype html>
 <html>
     <head>
         <title>PARQUEADERO NEWAY</title>
@@ -75,7 +75,9 @@
     <p class="signin button"> 
         <input type="submit" value="Registrarse" ng-click="ts.registrarse()"/> 
     <p class="signin button"> 
-        <input type="submit" value="Limpiar" ng-click="ts.limpiar()"/>     
+        <input type="submit" value="Limpiar" ng-click="ts.limpiar()"/>
+    <p class="signin button"> 
+        <input type="submit" value="Listar" ng-click="ts.listar()"/>
     </p>
     <p class="change_link">  
         Ya estas Registrado?
@@ -103,8 +105,32 @@
                     }else{
                         window.location.href = "Usuario.html";
                     }
-                });                        
-            }
+                });
+                
+            controlador.registrarse = function(){
+                var parametros = {opcion: "registrarse", data: JSON.stringify(controlador.usuario)};
+                $http({
+                    method: 'POST',
+                    url:'http://localhost:8080/Backend/controller/usuariosController.jsp',
+                    params: parametros
+                }).then(function(res){
+                    console.log(res);
+                    controlador.respuesta = res.data;
+                    controlador.listar();
+                });    
+            };
+            
+            controlador.listar = function(){
+                var parametros = {opcion:"listar"};
+                $http({
+                    method: 'POST',
+                    url:'http://localhost:8080/Backend/controller/usuariosController.jsp',
+                    params: parametros
+                }).then(function(res){
+                    console.log(res);
+                    controlador.usuarios = res.data;
+                });
+            };
         }
     </script>
 </html>

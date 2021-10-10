@@ -208,8 +208,13 @@ public class ConexionDB {
         query.append(")");
         try {
             stmt = con.createStatement();
-            rs = stmt.executeQuery(query.toString());
-            return rs.getInt("id" + nombreTabla);
+            int columnasAfectadas = stmt.executeUpdate(query.toString(), Statement.RETURN_GENERATED_KEYS);
+            if (columnasAfectadas == 0) {
+                throw new SQLException("No se pudo guardar el registro");
+            }
+            
+            //rs = stmt.executeQuery(query.toString());
+            //return rs.getInt("id" + nombreTabla);
         } catch (SQLException ex) {
             Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
