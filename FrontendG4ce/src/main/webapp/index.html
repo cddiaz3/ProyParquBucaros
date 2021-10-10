@@ -8,19 +8,19 @@
     </head>
     <body>
         <h1>Hello Grupo 4 S23!</h1>
-        <div id="Ingresar" class="form">
+        <div id="Ingresar" class="form" ng-app="login23" ng-controller="testController as ts">
   <form  action="mysuperscript.php" autocomplete="on"> 
     <h1>Ingresar</h1> 
     <p> 
         <label for="username" class="uname" > Nombre de Usuario: </label>
-        <input id="username" name="username" required="required" type="text" placeholder="Tu nombre de usuario"/>
+        <input id="username" name="username" required="required" type="text" placeholder="Tu nombre de usuario" ng-model="ts.usuario"/>
     </p>
     <p> 
         <label for="password" class="youpasswd"> Contraseña:</label>
-        <input id="password" name="password" required="required" type="password" placeholder="Tu password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número y una letra minúscula y mayúscula, y al menos 8 o más caracteres"/> 
+        <input id="password" name="password" required="required" type="password" placeholder="Tu password" ng-model="ts.contraseña"/> 
     </p>
 
-    <p class="Ingresar button"> 
+    <p class="Ingresar button" ng-click="ts.login()"> 
         <input type="submit" value="Ingresar" /> 
     </p>
     <p class="change_link">
@@ -61,16 +61,16 @@
         <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="Email" ng-model="ts.usuario.email"/> 
     </p>
      <p> 
-        <label for="userusersignup" class="uname" >Tu Usuario</label>
-        <input id="userusersignup" name="userusersignup" required="required" type="text" placeholder="Tu Usuario" ng-model="ts.usuario.tuUsuario"/>
+        <label for="usernicksignup" class="uname" >Tu Usuario</label>
+        <input id="usernicksignup" name="usernicksignup" required="required" type="text" placeholder="Tu Usuario" ng-model="ts.usuario.tuUsuario"/>
     </p>
     <p> 
         <label for="passwordsignup" class="youpasswd" >Tu Contraseña </label>
-        <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número y una letra minúscula y mayúscula, y al menos 8 o más caracteres" ng-model="ts.usuario.contraseña"/> 
+        <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO" ng-model="ts.usuario.contraseña"/> 
     </p>
     <p> 
         <label for="passwordsignup_confirm" class="youpasswd" >Confirma tu Contraseña </label>
-        <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+        <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO" ng-model="ts.usuario.contraseña"/>
     </p>
     <p class="signin button"> 
         <input type="submit" value="Registrarse" ng-click="ts.registrarse()"/> 
@@ -85,9 +85,14 @@
 </div>
     </body>
     <script>
-        //var app = angular.module("prueba23", []);
-        //app.controller('testController', ['$http', initController]);
-        //function initController($http){
-        //}
+        var app = angular.module('login23', []);
+        app.controller('testController', ['$http', initController]);
+        function initController($http){
+            var controlador = this;
+            
+            controlador.login = function(){
+                var parametros = {opcion:"login"};
+            }
+        }
     </script>
 </html>

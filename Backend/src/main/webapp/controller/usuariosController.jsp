@@ -8,6 +8,9 @@ String opcion = request.getParameter("opcion");
 if("listar".equals(opcion)){
     ArrayList<TOUsuarios> usuarios =usuariosCtrl.consultarUsuarios();
     out.print(new Gson().toJson(usuarios));
+}else if ("login".equals(opcion)){
+    ArrayList<TOUsuarios> usuarios =usuariosCtrl.consultarUsuarios();
+    out.print(new Gson().toJson(usuarios));
 } else {
     System.out.println("opcion no valida");
 }
